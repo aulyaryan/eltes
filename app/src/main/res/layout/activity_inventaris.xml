@@ -5,11 +5,30 @@
         android:layout_width="0dp" android:layout_height="?attr/actionBarSize" android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" app:title="Data Inventaris" app:titleTextColor="@android:color/white" />
+
+    <!-- Export Row -->
+    <LinearLayout android:id="@+id/exportRow"
+        android:layout_width="0dp" android:layout_height="40dp" android:orientation="horizontal"
+        android:gravity="center" android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportPdf"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:text="PDF" android:textSize="12sp" android:icon="@android:drawable/ic_menu_print"
+            app:iconSize="16dp" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnExportExcel"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:text="Excel" android:textSize="12sp" android:icon="@android:drawable/ic_menu_save"
+            app:iconSize="16dp" />
+    </LinearLayout>
+
     <androidx.appcompat.widget.SearchView android:id="@+id/search"
         android:layout_width="0dp" android:layout_height="48dp" android:layout_margin="8dp"
         android:iconifiedByDefault="false" android:queryHint="Cari barang..."
         app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/exportRow" />
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@+id/swipe"
         android:layout_width="0dp" android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -20,6 +39,7 @@
                 android:clipToPadding="false" android:paddingBottom="80dp" />
             <TextView android:id="@+id/tvEmpty" android:layout_width="match_parent"
                 android:layout_height="match_parent" android:gravity="center"
+                android:text="Data tidak ditemukan"
                 android:textColor="@color/text_hint" android:textSize="16sp" android:visibility="gone" />
         </FrameLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

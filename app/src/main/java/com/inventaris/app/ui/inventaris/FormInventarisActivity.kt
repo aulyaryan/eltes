@@ -70,7 +70,7 @@ class FormInventarisActivity : AppCompatActivity() {
         b.loading.visibility = View.VISIBLE
         scope.launch {
             try {
-                val action = if (editId != null) "updateInventaris" else "saveInventaris"
+                val action = if (editId != null) "updateInventaris" else "addInventaris"
                 val r = withContext(Dispatchers.IO) {
                     if (editId != null) RetrofitClient.getApi().updateInventaris(action, req)
                     else RetrofitClient.getApi().saveInventaris(action, req)

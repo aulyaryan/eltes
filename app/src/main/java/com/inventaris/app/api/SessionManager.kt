@@ -26,6 +26,6 @@ object SessionManager {
     fun username() = prefs.getString("u", "") ?: ""
     fun nama() = prefs.getString("n", "") ?: ""
     fun level() = prefs.getString("l", "") ?: ""
-    fun isAdmin() = level() == "admin"
+    fun isAdmin() = level().equals("admin", ignoreCase = true)
     fun logout() { prefs.edit().clear().apply() }
 }

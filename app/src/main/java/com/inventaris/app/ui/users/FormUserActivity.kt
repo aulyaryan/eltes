@@ -41,7 +41,7 @@ class FormUserActivity : AppCompatActivity() {
         if (editId == null && p.isEmpty()) { Snackbar.make(b.root, "Password wajib untuk baru", Snackbar.LENGTH_LONG).show(); return }
 
         val pass = if (editId != null && p == "password_tidak_diubah") null else p
-        val action = if (editId != null) "updateUser" else "saveUser"
+        val action = if (editId != null) "updateUser" else "addUser"
 
         b.loading.visibility = View.VISIBLE
         scope.launch {

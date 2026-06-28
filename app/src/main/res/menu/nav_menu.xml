@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_inventaris" android:icon="@android:drawable/ic_menu_gallery" android:title="Data Inventaris" />
+        <item android:id="@+id/nav_scan" android:icon="@android:drawable/ic_menu_camera" android:title="Scan QR" />
         <item android:id="@+id/nav_users" android:icon="@android:drawable/ic_menu_myplaces" android:title="Pengguna" />
         <item android:id="@+id/nav_logs" android:icon="@android:drawable/ic_menu_recent_history" android:title="Log Aktivitas" />
     </group>

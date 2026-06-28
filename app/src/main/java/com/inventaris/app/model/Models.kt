@@ -7,7 +7,8 @@ data class ApiResponse(
     @SerializedName("message") val message: String? = null,
     @SerializedName("data") val data: Any? = null,
     @SerializedName("user") val user: Any? = null,
-    @SerializedName("stats") val stats: Any? = null
+    @SerializedName("stats") val stats: Any? = null,
+    @SerializedName("html") val html: String? = null
 )
 
 data class LoginRequest(

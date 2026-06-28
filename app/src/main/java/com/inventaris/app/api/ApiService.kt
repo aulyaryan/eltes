@@ -21,7 +21,7 @@ interface ApiService {
     suspend fun getAllInventaris(@Query("action") action: String = "getAllInventaris", @Body body: Map<String, String> = emptyMap()): Response<ApiResponse>
 
     @POST("api/index.php")
-    suspend fun saveInventaris(@Query("action") action: String = "saveInventaris", @Body req: SaveInventarisRequest): Response<ApiResponse>
+    suspend fun saveInventaris(@Query("action") action: String = "addInventaris", @Body req: SaveInventarisRequest): Response<ApiResponse>
 
     @POST("api/index.php")
     suspend fun updateInventaris(@Query("action") action: String = "updateInventaris", @Body req: SaveInventarisRequest): Response<ApiResponse>
@@ -33,7 +33,7 @@ interface ApiService {
     suspend fun getAllUsers(@Query("action") action: String = "getAllUsers", @Body body: Map<String, String> = emptyMap()): Response<ApiResponse>
 
     @POST("api/index.php")
-    suspend fun saveUser(@Query("action") action: String = "saveUser", @Body req: SaveUserRequest): Response<ApiResponse>
+    suspend fun saveUser(@Query("action") action: String = "addUser", @Body req: SaveUserRequest): Response<ApiResponse>
 
     @POST("api/index.php")
     suspend fun updateUser(@Query("action") action: String = "updateUser", @Body req: SaveUserRequest): Response<ApiResponse>
@@ -45,5 +45,11 @@ interface ApiService {
     suspend fun getConfig(@Query("action") action: String = "getConfig", @Body body: Map<String, String> = emptyMap()): Response<ApiResponse>
 
     @POST("api/index.php")
+    suspend fun saveConfig(@Query("action") action: String = "saveConfig", @Body req: Map<String, String>): Response<ApiResponse>
+
+    @POST("api/index.php")
     suspend fun getAllLogs(@Query("action") action: String = "getAllLogs", @Body body: Map<String, String> = emptyMap()): Response<ApiResponse>
+
+    @POST("api/index.php")
+    suspend fun generatePdf(@Query("action") action: String = "generatePDF", @Body body: Map<String, String> = emptyMap()): Response<ApiResponse>
 }

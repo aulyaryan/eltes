@@ -36,6 +36,7 @@ class DashboardActivity : AppCompatActivity() {
             b.drawer.closeDrawer(GravityCompat.START)
             when (item.itemId) {
                 R.id.nav_inventaris -> startActivity(Intent(this, InventarisActivity::class.java))
+                R.id.nav_scan -> startActivity(Intent(this, com.inventaris.app.ui.scan.ScanQRActivity::class.java))
                 R.id.nav_users -> startActivity(Intent(this, UsersActivity::class.java))
                 R.id.nav_logs -> startActivity(Intent(this, LogsActivity::class.java))
                 R.id.nav_settings -> startActivity(Intent(this, SettingsActivity::class.java))
