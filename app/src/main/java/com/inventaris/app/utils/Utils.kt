@@ -9,7 +9,7 @@ import com.google.gson.reflect.TypeToken
 import com.inventaris.app.model.ApiResponse
 
 object Utils {
-    private val gson = Gson()
+    internal val gson = Gson()
 
     fun hasNetwork(ctx: Context): Boolean {
         val cm = ctx.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

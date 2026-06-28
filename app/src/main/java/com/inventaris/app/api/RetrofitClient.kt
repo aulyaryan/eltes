@@ -1,14 +1,26 @@
 package com.inventaris.app.api
 
 import com.inventaris.app.BuildConfig
-import okhttp3.JavaNetCookieJar
+import okhttp3.Cookie
+import okhttp3.CookieJar
+import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.CookieManager
-import java.net.CookiePolicy
 import java.util.concurrent.TimeUnit
+
+class SessionCookieJar : CookieJar {
+    private val cookies = mutableListOf<Cookie>()
+
+    override fun saveFromResponse(url: HttpUrl, cks: List<Cookie>) {
+        synchronized(cookies) { cookies.addAll(cks) }
+    }
+
+    override fun loadForRequest(url: HttpUrl): List<Cookie> {
+        synchronized(cookies) { return cookies.filter { it.matches(url) }.toList() }
+    }
+}
 
 object RetrofitClient {
     private var api: ApiService? = null
@@ -25,12 +37,11 @@ object RetrofitClient {
     fun getApi(): ApiService = api ?: build().let { api!! }
 
     private fun build(): ApiService {
-        val cm = CookieManager().apply { setCookiePolicy(CookiePolicy.ACCEPT_ALL) }
         val logging = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BASIC else HttpLoggingInterceptor.Level.NONE
         }
         val client = OkHttpClient.Builder()
-            .cookieJar(JavaNetCookieJar(cm))
+            .cookieJar(SessionCookieJar())
             .addInterceptor(logging)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)

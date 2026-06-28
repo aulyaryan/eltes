@@ -17,13 +17,14 @@ class InventarisAdapter(
     override fun onBindViewHolder(h: VH, i: Int) = h.bind(items[i])
     override fun getItemCount() = items.size
     inner class VH(private val b: ItemInventarisBinding) : RecyclerView.ViewHolder(b.root) {
-        fun bind(it: Inventaris) {
-            b.tvKode.text = it.kodeBarang; b.tvNama.text = it.namaBarang
-            b.tvKategori.text = it.kategori; b.tvLokasi.text = it.lokasi
-            b.tvKondisi.text = it.kondisi; b.tvJumlah.text = "Jml: ${it.jumlah}"
-            b.tvTahunBulan.text = "${it.tahun} ${it.bulan}"
-            if (!it.qrCode.isNullOrEmpty()) Glide.with(b.root.context).load(it.qrCode).into(b.ivQr)
-            b.root.setOnClickListener { onClick(it) }; b.btnDelete.setOnClickListener { onDelete(it) }
+        fun bind(item: Inventaris) {
+            b.tvKode.text = item.kodeBarang; b.tvNama.text = item.namaBarang
+            b.tvKategori.text = item.kategori; b.tvLokasi.text = item.lokasi
+            b.tvKondisi.text = item.kondisi; b.tvJumlah.text = "Jml: ${item.jumlah}"
+            b.tvTahunBulan.text = "${item.tahun} ${item.bulan}"
+            if (!item.qrCode.isNullOrEmpty()) Glide.with(b.root.context).load(item.qrCode).into(b.ivQr)
+            b.root.setOnClickListener { onClick(item) }
+            b.btnDelete.setOnClickListener { onDelete(item) }
         }
     }
 }

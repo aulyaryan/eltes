@@ -16,7 +16,7 @@ import kotlinx.coroutines.*
 class UsersActivity : AppCompatActivity() {
     private lateinit var b: ActivityUsersBinding
     private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
-    private val adp = UsersAdapter(
+    private val adp = UsersAdapter(emptyList(),
         { u -> startActivity(Intent(this, FormUserActivity::class.java).apply {
             putExtra("id", u.id); putExtra("u", u.username); putExtra("n", u.namaLengkap); putExtra("l", u.level)
         })},

@@ -18,13 +18,11 @@ class InventarisActivity : AppCompatActivity() {
     private lateinit var b: ActivityInventarisBinding
     private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private var all: List<Inventaris> = emptyList()
-    private val adp = InventarisAdapter(
+    private val adp = InventarisAdapter(emptyList(),
         { i -> startActivity(Intent(this, DetailInventarisActivity::class.java).putExtra("id", i.id)) },
         { i -> Utils.confirm(this, "Hapus", "Hapus ${i.namaBarang}?") {
             scope.launch {
-                try {
-                    val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().deleteInventaris(req = DeleteRequest(i.id)) }
-                    if (r.body()?.status == "success") load()
+                try { withContext(Dispatchers.IO) { RetrofitClient.getApi().deleteInventaris(req = DeleteRequest(i.id)) }; load()
                 } catch (_: Exception) {}
             }
         }}
