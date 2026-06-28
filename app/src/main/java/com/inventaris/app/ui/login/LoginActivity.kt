@@ -38,16 +38,32 @@ class LoginActivity : AppCompatActivity() {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().login(req = LoginRequest(u, p)) }
                 if (r.isSuccessful) {
                     val body = r.body()
-                    if (body != null && body.success == true) {
-                        val user = com.inventaris.app.utils.Utils.parseObject<com.inventaris.app.model.User>(body)
-                        SessionManager.save(user?.username ?: u, user?.namaLengkap ?: u, user?.level ?: "pengguna")
-                        startActivity(android.content.Intent(this@LoginActivity, DashboardActivity::class.java))
-                        finish()
-                    } else Snackbar.make(b.root, body?.message ?: "Login gagal", Snackbar.LENGTH_LONG).show()
-                } else Snackbar.make(b.root, "Error ${r.code()}", Snackbar.LENGTH_LONG).show()
+                    if (body != null && body.success) {
+                        // Parse sessionId dari body.user (LinkedTreeMap)
+                        val userMap = body.user as? Map<*, *>
+                        val sessionId = userMap?.get("sessionId") as? String
+                        if (sessionId != null && sessionId.isNotEmpty()) {
+                            val nama = (userMap["nama"] as? String)
+                                ?: (userMap["nama_lengkap"] as? String) ?: u
+                            val role = (userMap["role"] as? String)
+                                ?: (userMap["level"] as? String) ?: "pengguna"
+                            SessionManager.save(u, nama, role, sessionId)
+                            startActivity(android.content.Intent(this@LoginActivity, DashboardActivity::class.java))
+                            finish()
+                        } else {
+                            Snackbar.make(b.root, "Gagal dapat session ID", Snackbar.LENGTH_LONG).show()
+                        }
+                    } else {
+                        Snackbar.make(b.root, body?.message ?: "Login gagal", Snackbar.LENGTH_LONG).show()
+                    }
+                } else {
+                    Snackbar.make(b.root, "Error ${r.code()}", Snackbar.LENGTH_LONG).show()
+                }
             } catch (e: Exception) {
                 Snackbar.make(b.root, "Koneksi gagal: ${e.localizedMessage ?: "?"}", Snackbar.LENGTH_LONG).show()
-            } finally { b.loading.visibility = View.GONE; b.btnLogin.isEnabled = true }
+            } finally {
+                b.loading.visibility = View.GONE; b.btnLogin.isEnabled = true
+            }
         }
     }
 

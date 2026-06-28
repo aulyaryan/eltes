@@ -1,26 +1,12 @@
 package com.inventaris.app.api
 
 import com.inventaris.app.BuildConfig
-import okhttp3.Cookie
-import okhttp3.CookieJar
-import okhttp3.HttpUrl
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-
-class SessionCookieJar : CookieJar {
-    private val cookies = mutableListOf<Cookie>()
-
-    override fun saveFromResponse(url: HttpUrl, cks: List<Cookie>) {
-        synchronized(cookies) { cookies.addAll(cks) }
-    }
-
-    override fun loadForRequest(url: HttpUrl): List<Cookie> {
-        synchronized(cookies) { return cookies.filter { it.matches(url) }.toList() }
-    }
-}
 
 object RetrofitClient {
     private var api: ApiService? = null
@@ -40,12 +26,24 @@ object RetrofitClient {
         val logging = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BASIC else HttpLoggingInterceptor.Level.NONE
         }
+
+        // Interceptor untuk inject X-Session-Id header
+        val sessionInterceptor = Interceptor { chain ->
+            val original = chain.request()
+            val sessionId = SessionManager.getSessionId()
+            val request = if (sessionId.isNotEmpty()) {
+                original.newBuilder().header("X-Session-Id", sessionId).build()
+            } else original
+            chain.proceed(request)
+        }
+
         val client = OkHttpClient.Builder()
-            .cookieJar(SessionCookieJar())
+            .addInterceptor(sessionInterceptor)
             .addInterceptor(logging)
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .build()
+
         api = Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)

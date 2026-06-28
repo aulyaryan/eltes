@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class ApiResponse(
     @SerializedName("success") val success: Boolean = false,
     @SerializedName("message") val message: String? = null,
-    @SerializedName("data") val data: Any? = null
+    @SerializedName("data") val data: Any? = null,
+    @SerializedName("user") val user: Any? = null
 )
 
 data class LoginRequest(
@@ -19,6 +20,9 @@ data class User(
     @SerializedName("password") val password: String? = null,
     @SerializedName("nama_lengkap") val namaLengkap: String = "",
     @SerializedName("level") val level: String = "",
+    @SerializedName("role") val role: String = "",
+    @SerializedName("nama") val nama: String = "",
+    @SerializedName("sessionId") val sessionId: String = "",
     @SerializedName("created_at") val createdAt: String? = null
 )
 
