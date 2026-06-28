@@ -1,0 +1,6 @@
+-keepattributes Signature, InnerClasses, EnclosingMethod
+-keepattributes RuntimeVisibleAnnotations, RuntimeVisibleParameterAnnotations
+-keepclassmembers,allowshrinking,allowobfuscation interface * { @retrofit2.http.* <methods>; }
+-dontwarn okhttp3.** -dontwarn okio.**
+-keep class com.inventaris.app.model.** { *; }
+-keep class * implements com.bumptech.glide.module.GlideModule

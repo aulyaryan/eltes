@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="4dp" app:cardCornerRadius="8dp" app:contentPadding="12dp"
+    tools:context=".ui.logs.LogsActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:id="@+id/tvUser" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:textColor="@color/primary_blue" android:textSize="14sp" android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvTime" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" tools:text="admin" />
+        <TextView android:id="@+id/tvTime" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="@color/text_hint" android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            tools:text="2026-06-28 10:00" />
+        <TextView android:id="@+id/tvAction" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" android:textColor="@color/text_secondary" android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUser" tools:text="Menambah inventaris" />
+        <TextView android:id="@+id/tvDetails" android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_marginTop="2dp" android:textColor="@color/text_hint" android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAction" tools:text="Detail: Laptop Asus" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

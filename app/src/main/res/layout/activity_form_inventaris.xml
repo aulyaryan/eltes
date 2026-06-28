@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar android:id="@+id/toolbar"
+            android:layout_width="0dp" android:layout_height="?attr/actionBarSize" android:background="?attr/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:titleTextColor="@android:color/white" />
+        <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_margin="16dp" app:cardCornerRadius="12dp" app:contentPadding="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+            <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kode Barang"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etKodeBarang"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Nama Barang"
+                    app:layout_constraintTop_toBottomOf="@+id/etKodeBarang">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etNamaBarang"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginEnd="4dp"
+                    android:hint="Kategori" app:layout_constraintEnd_toStartOf="@+id/etJumlah"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/etNamaBarang">
+                    <AutoCompleteTextView android:id="@+id/actKategori" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="4dp"
+                    android:hint="Jumlah" android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/etNamaBarang"
+                    app:layout_constraintTop_toBottomOf="@+id/etNamaBarang">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etJumlah"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Lokasi"
+                    app:layout_constraintTop_toBottomOf="@+id/actKategori">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLokasi"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginEnd="4dp"
+                    android:hint="Kondisi" app:layout_constraintEnd_toStartOf="@+id/etTahun"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/etLokasi">
+                    <AutoCompleteTextView android:id="@+id/actKondisi" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="4dp"
+                    android:hint="Tahun" app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/actKondisi" app:layout_constraintTop_toBottomOf="@+id/etLokasi">
+                    <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTahun"
+                        android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Bulan"
+                    app:layout_constraintTop_toBottomOf="@+id/actKondisi">
+                    <AutoCompleteTextView android:id="@+id/actBulan" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnSave"
+                    android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="16dp" android:text="Simpan"
+                    app:layout_constraintTop_toBottomOf="@+id/actBulan" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <View android:id="@+id/loading" android:layout_width="0dp" android:layout_height="0dp"
+            android:background="#80000000" android:clickable="true" android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

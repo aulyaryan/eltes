@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QR Inventaris</string>
+    <string name="nav_open">Buka</string>
+    <string name="nav_close">Tutup</string>
+    <string-array name="kategori_array"><item>Elektronik</item><item>Perabotan</item><item>Alat Tulis</item><item>Kendaraan</item><item>Bangunan</item><item>Laboratorium</item><item>Olahraga</item><item>Kesenian</item><item>Perpustakaan</item><item>Lainnya</item></string-array>
+    <string-array name="kondisi_array"><item>Baik</item><item>Rusak</item><item>Hilang</item></string-array>
+    <string-array name="bulan_array"><item>Januari</item><item>Februari</item><item>Maret</item><item>April</item><item>Mei</item><item>Juni</item><item>Juli</item><item>Agustus</item><item>September</item><item>Oktober</item><item>November</item><item>Desember</item></string-array>
+    <string-array name="level_array"><item>admin</item><item>pengguna</item></string-array>
+</resources>
