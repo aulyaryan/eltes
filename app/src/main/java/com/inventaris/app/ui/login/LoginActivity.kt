@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().login(req = LoginRequest(u, p)) }
                 if (r.isSuccessful) {
                     val body = r.body()
-                    if (body != null && body.status == "success") {
+                    if (body != null && body.success == true) {
                         val user = com.inventaris.app.utils.Utils.parseObject<com.inventaris.app.model.User>(body)
                         SessionManager.save(user?.username ?: u, user?.namaLengkap ?: u, user?.level ?: "pengguna")
                         startActivity(android.content.Intent(this@LoginActivity, DashboardActivity::class.java))

@@ -55,7 +55,7 @@ class DetailInventarisActivity : AppCompatActivity() {
         scope.launch {
             try {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().deleteInventaris(req = DeleteRequest(itemId)) }
-                if (r.body()?.status == "success") finish()
+                if (r.body()?.success == true) finish()
             } catch (_: Exception) {}
             finally { b.loading.visibility = View.GONE }
         }

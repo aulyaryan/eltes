@@ -75,7 +75,7 @@ class FormInventarisActivity : AppCompatActivity() {
                     if (editId != null) RetrofitClient.getApi().updateInventaris(action, req)
                     else RetrofitClient.getApi().saveInventaris(action, req)
                 }
-                if (r.body()?.status == "success") finish()
+                if (r.body()?.success == true) finish()
                 else Snackbar.make(b.root, r.body()?.message ?: "Gagal", Snackbar.LENGTH_LONG).show()
             } catch (e: Exception) { Snackbar.make(b.root, "Gagal: ${e.localizedMessage}", Snackbar.LENGTH_LONG).show() }
             finally { b.loading.visibility = View.GONE }

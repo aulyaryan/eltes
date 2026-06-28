@@ -47,7 +47,7 @@ class FormUserActivity : AppCompatActivity() {
         scope.launch {
             try {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().saveUser(action, SaveUserRequest(u, pass, n, l)) }
-                if (r.body()?.status == "success") finish()
+                if (r.body()?.success == true) finish()
                 else Snackbar.make(b.root, r.body()?.message ?: "Gagal", Snackbar.LENGTH_LONG).show()
             } catch (e: Exception) { Snackbar.make(b.root, "Gagal: ${e.localizedMessage}", Snackbar.LENGTH_LONG).show() }
             finally { b.loading.visibility = View.GONE }

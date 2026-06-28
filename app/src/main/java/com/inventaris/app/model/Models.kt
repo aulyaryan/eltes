@@ -3,7 +3,7 @@ package com.inventaris.app.model
 import com.google.gson.annotations.SerializedName
 
 data class ApiResponse(
-    @SerializedName("status") val status: String,
+    @SerializedName("success") val success: Boolean = false,
     @SerializedName("message") val message: String? = null,
     @SerializedName("data") val data: Any? = null
 )
