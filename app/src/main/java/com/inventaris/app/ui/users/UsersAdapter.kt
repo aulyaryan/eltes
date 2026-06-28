@@ -17,7 +17,7 @@ class UsersAdapter(
     override fun getItemCount() = items.size
     inner class VH(private val b: ItemUserBinding) : RecyclerView.ViewHolder(b.root) {
         fun bind(item: User) {
-            b.tvUsername.text = item.username; b.tvNama.text = item.namaLengkap; b.tvLevel.text = item.level
+            b.tvUsername.text = item.username; b.tvNama.text = item.nama; b.tvLevel.text = item.role
             b.root.setOnClickListener { onClick(item) }
             b.btnDelete.setOnClickListener { onDelete(item) }
         }

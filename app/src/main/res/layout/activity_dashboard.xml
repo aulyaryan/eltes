@@ -15,6 +15,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/content"
                     android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:padding="16dp" android:visibility="gone">
+                    <!-- Total Barang -->
                     <com.google.android.material.card.MaterialCardView android:id="@+id/cardInventaris"
                         android:layout_width="0dp" android:layout_height="120dp" android:clickable="true"
                         android:foreground="?attr/selectableItemBackground" app:cardBackgroundColor="@color/card_blue"
@@ -27,10 +28,11 @@
                                 android:textSize="36sp" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                                android:text="Inventaris" android:textColor="@android:color/white" android:textSize="12sp"
+                                android:text="Total Barang" android:textColor="@android:color/white" android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
+                    <!-- Pengguna / Users -->
                     <com.google.android.material.card.MaterialCardView android:id="@+id/cardUsers"
                         android:layout_width="0dp" android:layout_height="120dp" android:clickable="true"
                         android:foreground="?attr/selectableItemBackground" app:cardBackgroundColor="@color/card_green"
@@ -39,62 +41,77 @@
                         <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                             android:layout_height="match_parent" android:padding="16dp">
                             <TextView android:id="@+id/tvTotalPengguna" android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white"
-                                android:textSize="36sp" android:textStyle="bold" app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_height="wrap_content" android:text="-" android:textColor="@android:color/white"
+                                android:textSize="18sp" android:textStyle="italic"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
                             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                                 android:text="Pengguna" android:textColor="@android:color/white" android:textSize="12sp"
                                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardKategori"
-                        android:layout_width="0dp" android:layout_height="90dp" android:layout_marginTop="12dp"
-                        app:cardBackgroundColor="@color/card_orange" app:cardCornerRadius="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/cardLokasi" app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/cardInventaris">
-                        <TextView android:id="@+id/tvTotalKategori" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:layout_margin="12dp" android:textSize="28sp"
-                            android:textStyle="bold" android:textColor="@android:color/white"
-                            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardLokasi"
-                        android:layout_width="0dp" android:layout_height="90dp" android:layout_marginTop="12dp"
-                        app:cardBackgroundColor="@color/card_purple" app:cardCornerRadius="12dp"
-                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/cardKategori"
-                        app:layout_constraintTop_toBottomOf="@+id/cardUsers">
-                        <TextView android:id="@+id/tvTotalLokasi" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:layout_margin="12dp" android:textSize="28sp"
-                            android:textStyle="bold" android:textColor="@android:color/white"
-                            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp" android:text="Kondisi Aset" android:textColor="@color/text_primary"
-                        android:textSize="16sp" android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/cardKategori" />
-                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardBaik"
-                        android:layout_width="0dp" android:layout_height="80dp" android:layout_marginTop="8dp"
-                        app:cardBackgroundColor="@color/card_green" app:cardCornerRadius="12dp"
-                        app:layout_constraintEnd_toStartOf="@+id/cardRusak" app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvSectionKondisi">
-                        <TextView android:id="@+id/tvTotalBaik" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:layout_margin="12dp" android:textSize="28sp"
-                            android:textStyle="bold" android:textColor="@android:color/white"
-                            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardRusak"
-                        android:layout_width="0dp" android:layout_height="80dp" android:layout_marginTop="8dp"
-                        app:cardBackgroundColor="@color/card_red" app:cardCornerRadius="12dp"
-                        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/cardBaik"
-                        app:layout_constraintTop_toBottomOf="@+id/tvSectionKondisi">
-                        <TextView android:id="@+id/tvTotalRusak" android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:layout_margin="12dp" android:textSize="28sp"
-                            android:textStyle="bold" android:textColor="@android:color/white"
-                            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
-                    </com.google.android.material.card.MaterialCardView>
+                    <!-- Section: Kondisi Aset -->
                     <TextView android:id="@+id/tvSectionKondisi" android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Kondisi Aset"
                         android:textColor="@color/text_primary" android:textSize="16sp" android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/cardKategori" />
+                        app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/cardInventaris" />
+                    <!-- Baik -->
+                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardBaik"
+                        android:layout_width="0dp" android:layout_height="90dp" android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="@color/card_green" app:cardCornerRadius="12dp"
+                        app:layout_constraintEnd_toStartOf="@+id/cardRusak" app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSectionKondisi">
+                        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:padding="12dp">
+                            <TextView android:id="@+id/tvTotalBaik" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white"
+                                android:textSize="28sp" android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Baik" android:textColor="@android:color/white" android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <!-- Rusak -->
+                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardRusak"
+                        android:layout_width="0dp" android:layout_height="90dp" android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="@color/card_red" app:cardCornerRadius="12dp"
+                        app:layout_constraintEnd_toStartOf="@+id/cardHilang"
+                        app:layout_constraintStart_toEndOf="@+id/cardBaik"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSectionKondisi">
+                        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:padding="12dp">
+                            <TextView android:id="@+id/tvTotalRusak" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white"
+                                android:textSize="28sp" android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Rusak" android:textColor="@android:color/white" android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <!-- Hilang -->
+                    <com.google.android.material.card.MaterialCardView android:id="@+id/cardHilang"
+                        android:layout_width="0dp" android:layout_height="90dp" android:layout_marginTop="8dp"
+                        app:cardBackgroundColor="@color/card_orange" app:cardCornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cardRusak"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSectionKondisi">
+                        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+                            android:layout_height="match_parent" android:padding="12dp">
+                            <TextView android:id="@+id/tvTotalHilang" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white"
+                                android:textSize="28sp" android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Hilang" android:textColor="@android:color/white" android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <!-- Log Aktivitas -->
                     <com.google.android.material.card.MaterialCardView android:id="@+id/cardLogs"
                         android:layout_width="0dp" android:layout_height="80dp" android:layout_marginTop="12dp"
                         android:clickable="true" android:foreground="?attr/selectableItemBackground"

@@ -58,14 +58,12 @@ class DashboardActivity : AppCompatActivity() {
             try {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().getDashboardStats() }
                 if (r.isSuccessful && r.body()?.success == true) {
-                    val stats = r.body()?.let { Utils.parseObject<DashboardStats>(it) }
+                    val stats = r.body()?.let { Utils.parseStats<DashboardStats>(it) }
                     if (stats != null) {
-                        b.tvTotalInventaris.text = "${stats.totalInventaris}"
-                        b.tvTotalKategori.text = "${stats.totalKategori}"
-                        b.tvTotalLokasi.text = "${stats.totalLokasi}"
-                        b.tvTotalPengguna.text = "${stats.totalPengguna}"
-                        b.tvTotalBaik.text = "${stats.totalAsetBaik}"
-                        b.tvTotalRusak.text = "${stats.totalAsetRusak}"
+                        b.tvTotalInventaris.text = "${stats.totalBarang}"
+                        b.tvTotalBaik.text = "${stats.barangBaik}"
+                        b.tvTotalRusak.text = "${stats.barangRusak}"
+                        b.tvTotalHilang.text = "${stats.barangHilang}"
                         b.content.visibility = View.VISIBLE
                     } else {
                         b.content.visibility = View.VISIBLE

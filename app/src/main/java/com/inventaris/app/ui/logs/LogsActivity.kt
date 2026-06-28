@@ -20,7 +20,7 @@ class LogsAdapter(private var items: List<LogAktivitas>) : RecyclerView.Adapter<
     override fun onBindViewHolder(h: VH, i: Int) = h.bind(items[i])
     override fun getItemCount() = items.size
     inner class VH(private val b: ItemLogBinding) : RecyclerView.ViewHolder(b.root) {
-        fun bind(it: LogAktivitas) { b.tvUser.text = it.user; b.tvAction.text = it.action; b.tvDetails.text = it.details; b.tvTime.text = it.createdAt ?: "" }
+        fun bind(it: LogAktivitas) { b.tvUser.text = it.user; b.tvAction.text = it.action; b.tvDetails.text = it.details; b.tvTime.text = it.timestamp }
     }
 }
 

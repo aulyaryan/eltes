@@ -25,6 +25,10 @@ object Utils {
         gson.fromJson(gson.toJson(resp.data), T::class.java)
     } catch (_: Exception) { null }
 
+    inline fun <reified T> parseStats(resp: ApiResponse): T? = try {
+        gson.fromJson(gson.toJson(resp.stats), T::class.java)
+    } catch (_: Exception) { null }
+
     fun confirm(ctx: Context, title: String, msg: String, cb: () -> Unit) {
         MaterialAlertDialogBuilder(ctx).setTitle(title).setMessage(msg)
             .setPositiveButton("Ya") { _, _ -> cb() }.setNegativeButton("Batal", null).show()

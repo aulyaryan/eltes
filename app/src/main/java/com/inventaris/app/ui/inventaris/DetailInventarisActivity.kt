@@ -41,7 +41,7 @@ class DetailInventarisActivity : AppCompatActivity() {
                     b.tvKategori.text = item.kategori; b.tvLokasi.text = item.lokasi
                     b.tvKondisi.text = item.kondisi; b.tvJumlah.text = "${item.jumlah}"
                     b.tvTahun.text = item.tahun; b.tvBulan.text = item.bulan
-                    b.tvCreated.text = item.createdAt ?: "-"
+                    b.tvCreated.text = item.updatedDate ?: "-"
                     if (!item.qrCode.isNullOrEmpty()) Glide.with(this@DetailInventarisActivity).load(item.qrCode).into(b.ivQr)
                     b.content.visibility = View.VISIBLE
                 }
