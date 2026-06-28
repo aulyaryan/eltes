@@ -19,7 +19,7 @@ class UsersActivity : AppCompatActivity() {
     private val adp = UsersAdapter(emptyList(),
         { u -> startActivity(Intent(this, FormUserActivity::class.java).apply {
             putExtra("id", u.id); putExtra("u", u.username); putExtra("n", u.nama); putExtra("l", u.role)
-        }}},
+        })},
         { u -> Utils.confirm(this, "Hapus", "Hapus ${u.username}?") {
             scope.launch {
                 try { withContext(Dispatchers.IO) { RetrofitClient.getApi().deleteUser(req = DeleteRequest(u.id)) } } catch (_: Exception) {}
