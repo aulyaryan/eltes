@@ -57,7 +57,7 @@ class DashboardActivity : AppCompatActivity() {
         scope.launch {
             try {
                 val r = withContext(Dispatchers.IO) { RetrofitClient.getApi().getDashboardStats() }
-                if (r.isSuccessful) {
+                if (r.isSuccessful && r.body()?.success == true) {
                     val stats = r.body()?.let { Utils.parseObject<DashboardStats>(it) }
                     if (stats != null) {
                         b.tvTotalInventaris.text = "${stats.totalInventaris}"
@@ -67,10 +67,19 @@ class DashboardActivity : AppCompatActivity() {
                         b.tvTotalBaik.text = "${stats.totalAsetBaik}"
                         b.tvTotalRusak.text = "${stats.totalAsetRusak}"
                         b.content.visibility = View.VISIBLE
+                    } else {
+                        b.content.visibility = View.VISIBLE
+                        Snackbar.make(b.root, "Gagal memproses data", Snackbar.LENGTH_LONG).show()
                     }
+                } else {
+                    b.content.visibility = View.VISIBLE
+                    val msg = r.body()?.message ?: "Gagal memuat data (${r.code()})"
+                    Snackbar.make(b.root, msg, Snackbar.LENGTH_LONG).show()
                 }
-            } catch (_: Exception) {}
-            finally { b.swipe.isRefreshing = false }
+            } catch (e: Exception) {
+                b.content.visibility = View.VISIBLE
+                Snackbar.make(b.root, "Koneksi gagal: ${e.localizedMessage ?: "?"}", Snackbar.LENGTH_LONG).show()
+            } finally { b.swipe.isRefreshing = false }
         }
     }
 
