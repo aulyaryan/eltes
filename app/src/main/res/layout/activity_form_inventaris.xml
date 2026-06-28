@@ -11,62 +11,70 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
             <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilKodeBarang"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Kode Barang"
                     app:layout_constraintTop_toTopOf="parent">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etKodeBarang"
                         android:layout_width="match_parent" android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilNamaBarang"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Nama Barang"
-                    app:layout_constraintTop_toBottomOf="@+id/etKodeBarang">
+                    app:layout_constraintTop_toBottomOf="@+id/tilKodeBarang">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etNamaBarang"
                         android:layout_width="match_parent" android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilKategori"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginEnd="4dp"
-                    android:hint="Kategori" app:layout_constraintEnd_toStartOf="@+id/etJumlah"
-                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/etNamaBarang">
+                    android:hint="Kategori" app:layout_constraintEnd_toStartOf="@+id/tilJumlah"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tilNamaBarang">
                     <AutoCompleteTextView android:id="@+id/actKategori" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilJumlah"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="4dp"
-                    android:hint="Jumlah" android:inputType="number"
-                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/etNamaBarang"
-                    app:layout_constraintTop_toBottomOf="@+id/etNamaBarang">
+                    android:hint="Jumlah"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/tilKategori"
+                    app:layout_constraintTop_toBottomOf="@+id/tilNamaBarang">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etJumlah"
                         android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilLokasi"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Lokasi"
-                    app:layout_constraintTop_toBottomOf="@+id/actKategori">
+                    app:layout_constraintTop_toBottomOf="@+id/tilKategori">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etLokasi"
                         android:layout_width="match_parent" android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilKondisi"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginEnd="4dp"
-                    android:hint="Kondisi" app:layout_constraintEnd_toStartOf="@+id/etTahun"
-                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/etLokasi">
+                    android:hint="Kondisi" app:layout_constraintEnd_toStartOf="@+id/tilTahun"
+                    app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tilLokasi">
                     <AutoCompleteTextView android:id="@+id/actKondisi" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilTahun"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:layout_marginStart="4dp"
                     android:hint="Tahun" app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/actKondisi" app:layout_constraintTop_toBottomOf="@+id/etLokasi">
+                    app:layout_constraintStart_toEndOf="@+id/tilKondisi" app:layout_constraintTop_toBottomOf="@+id/tilLokasi">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etTahun"
                         android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilBulan"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Bulan"
-                    app:layout_constraintTop_toBottomOf="@+id/actKondisi">
+                    app:layout_constraintTop_toBottomOf="@+id/tilKondisi">
                     <AutoCompleteTextView android:id="@+id/actBulan" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton android:id="@+id/btnSave"
                     android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="16dp" android:text="Simpan"
-                    app:layout_constraintTop_toBottomOf="@+id/actBulan" />
+                    app:layout_constraintTop_toBottomOf="@+id/tilBulan" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
         <View android:id="@+id/loading" android:layout_width="0dp" android:layout_height="0dp"

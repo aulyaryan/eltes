@@ -25,21 +25,23 @@
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etPassword"
                         android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textPassword" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilNama"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Nama Lengkap"
                     app:layout_constraintTop_toBottomOf="@+id/tilPassword">
                     <com.google.android.material.textfield.TextInputEditText android:id="@+id/etNama"
                         android:layout_width="match_parent" android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputLayout android:id="@+id/tilLevel"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="Level"
-                    app:layout_constraintTop_toBottomOf="@+id/etNama">
+                    app:layout_constraintTop_toBottomOf="@+id/tilNama">
                     <AutoCompleteTextView android:id="@+id/actLevel" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.button.MaterialButton android:id="@+id/btnSave"
                     android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="16dp" android:text="Simpan"
-                    app:layout_constraintTop_toBottomOf="@+id/actLevel" />
+                    app:layout_constraintTop_toBottomOf="@+id/tilLevel" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
         <View android:id="@+id/loading" android:layout_width="0dp" android:layout_height="0dp"
